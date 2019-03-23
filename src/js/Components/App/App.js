@@ -1,9 +1,10 @@
 import Component from "../../framework/Component";
 import { Nav } from "../Nav";
+import Users from "../Users/Users";
 
 export default class App extends Component {
-  constructor(host) {
-    super(host);
+  constructor(host, props) {
+    super(host, props);
   }
 
   render() {
@@ -12,6 +13,7 @@ export default class App extends Component {
         tag: Nav,
         props: {}
       },
+      this.props.routerOutlet
     ];
 
     // console.log('I am App and I reset them all');
