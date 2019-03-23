@@ -1,6 +1,11 @@
 import { Main } from "../Components/Main";
-import { Posts } from "../Components/Posts";
-import { Users } from "../Components/Users";
+import { NotFound } from "../Components/NotFound";
+import Users from "../Components/Users/Users";
+import User from "../Components/User/User";
+import Login from "../Components/Login/Login";
+import Posts from "../Components/Posts/Posts";
+import { isLogged } from "../guards/guards";
+
 
 export const routes = [
     {
@@ -9,15 +14,24 @@ export const routes = [
     },
     {
         path: 'users',
-        component: Users
+        component: Users,
+        guards: [ isLogged ]
     },
     {
-        path: 'posts/posts/posts',
-        component: Posts
-    },
-    {
-        path: 'posts/:id',
+        path: 'user/:id',
         component: User
     },
-
+    {
+        path: 'login',
+        component: Login
+    },
+    {
+        path: 'posts',
+        component: Posts,
+        guards: [ isLogged ]
+    },
+    {
+        path: '**',
+        component: NotFound
+    }
 ];
