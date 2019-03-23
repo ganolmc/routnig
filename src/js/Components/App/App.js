@@ -1,12 +1,5 @@
 import Component from "../../framework/Component";
-import {Temperature} from "../Temperature/";
-import {Wind} from "../Wind";
-import {CurrentWeather} from "../CurrentWeather";
-import {WeatherForecast} from "../WeatherForecast";
-import {WeatherItem} from "../WeatherItem";
-import {Counter} from "../Counter";
-import {CountControls} from "../CountControls";
-import {PrettyNumber} from "../PrettyNumber";
+import { Nav } from "../Nav";
 
 export default class App extends Component {
   constructor(host) {
@@ -14,21 +7,28 @@ export default class App extends Component {
   }
 
   render() {
-    console.log('I am App and I reset them all');
     return [
       {
-        tag: CountControls,
-        props: { value: 5 },
-      },
-      {
-        tag: PrettyNumber,
-        props: { value: 5 },
-      },
-      {
-        tag: PrettyNumber,
-        props: { value: 5 },
+        tag: Nav,
+        props: {}
       },
     ];
+
+    // console.log('I am App and I reset them all');
+    // return [
+    //   {
+    //     tag: CountControls,
+    //     props: { value: 5 },
+    //   },
+    //   {
+    //     tag: PrettyNumber,
+    //     props: { value: 5 },
+    //   },
+    //   {
+    //     tag: PrettyNumber,
+    //     props: { value: 5 },
+    //   },
+    // ];
 
     /* const t1 = document.createElement('div');
     new Temperature(t1, { temperature: 25, unit: 'C' });

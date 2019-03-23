@@ -41,3 +41,7 @@ div div div div div div div {
     font-size: 2em;
     padding: 1em;
 }
+
+a {
+    margin: 0 10px;
+}
