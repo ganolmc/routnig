@@ -7,15 +7,13 @@ import Posts from "../Components/Posts/Posts";
 import { isLogged } from "../guards/guards";
 
 
-export const routes = [
-    {
+export const routes = [{
         path: '',
         component: Main
     },
     {
         path: 'users',
         component: Users,
-        guards: [ isLogged ]
     },
     {
         path: 'user/:id',
@@ -28,7 +26,7 @@ export const routes = [
     {
         path: 'posts',
         component: Posts,
-        guards: [ isLogged ]
+        guards: [isLogged]
     },
     {
         path: '**',

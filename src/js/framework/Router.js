@@ -1,4 +1,3 @@
-
 export default class Router {
 
     constructor(host, routes, App) {
@@ -17,8 +16,10 @@ export default class Router {
     }
 
     handleUrlChange() {
-        if(!location.hash) {
+        if (!location.hash) {
             location.assign(`/#${location.pathname}`);
+        } else if (!location.hash.slice(1).startsWith('/')) {
+            location.assign(`#/${location.hash.slice(1)}`);
         } else {
             const browserUrlArr = location.hash.split('/').slice(1);
             this.findRoute(browserUrlArr);
@@ -55,12 +56,12 @@ export default class Router {
             const isRoutePathEqualBrowserUrl = routePathArr[i] === urlPart;
             const isRouteArrPartContainsParam = routePathArr[i].startsWith(':');
             return isRoutePathEqualBrowserUrl || isRouteArrPartContainsParam;
-        });       
+        });
     }
 
     checkGuards(guards) {
         return guards.every(guard => {
-           return guard();
+            return guard();
         });
     }
 
@@ -71,6 +72,6 @@ export default class Router {
                 return;
             }
         }
-        const newComponent = new route.component(this.routerOutlet, params);
-    }    
+        new route.component(this.routerOutlet, params);
+    }
 }
